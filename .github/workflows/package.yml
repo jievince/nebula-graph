@@ -2,7 +2,7 @@ name: package
 
 on:
   schedule:
-    - cron: '2,7 * * * *'
+    - cron: '* * * * *'
 
 defaults:
   run:

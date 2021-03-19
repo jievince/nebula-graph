@@ -160,9 +160,7 @@ void CollectAllExprsVisitor::visit(ListComprehensionExpression* expr) {
 void CollectAllExprsVisitor::visit(PredicateExpression *expr) {
     collectExpr(expr);
     expr->collection()->accept(this);
-    if (expr->hasFilter()) {
-        expr->filter()->accept(this);
-    }
+    expr->filter()->accept(this);
 }
 
 void CollectAllExprsVisitor::visit(ReduceExpression *expr) {

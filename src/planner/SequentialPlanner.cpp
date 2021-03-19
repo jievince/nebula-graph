@@ -14,7 +14,10 @@
 namespace nebula {
 namespace graph {
 bool SequentialPlanner::match(AstContext* astCtx) {
-    return astCtx->sentence->kind() == Sentence::Kind::kSequential;
+    if (astCtx->sentence->kind() == Sentence::Kind::kSequential) {
+        return true;
+    }
+    return false;
 }
 
 StatusOr<SubPlan> SequentialPlanner::transform(AstContext* astCtx) {

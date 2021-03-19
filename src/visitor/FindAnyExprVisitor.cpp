@@ -92,9 +92,7 @@ void FindAnyExprVisitor::visit(PredicateExpression *expr) {
     if (found_) return;
     expr->collection()->accept(this);
     if (found_) return;
-    if (expr->hasFilter()) {
-        expr->filter()->accept(this);
-    }
+    expr->filter()->accept(this);
 }
 
 void FindAnyExprVisitor::visit(ReduceExpression *expr) {

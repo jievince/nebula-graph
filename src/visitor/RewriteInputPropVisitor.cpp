@@ -279,11 +279,9 @@ void RewriteInputPropVisitor::visit(PredicateExpression* expr) {
     if (ok()) {
         expr->setCollection(result_.release());
     }
-    if (expr->hasFilter()) {
-        expr->filter()->accept(this);
-        if (ok()) {
-            expr->setFilter(result_.release());
-        }
+    expr->filter()->accept(this);
+    if (ok()) {
+        expr->setFilter(result_.release());
     }
 }
 

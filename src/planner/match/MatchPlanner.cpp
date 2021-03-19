@@ -16,7 +16,11 @@
 namespace nebula {
 namespace graph {
 bool MatchPlanner::match(AstContext* astCtx) {
-    return astCtx->sentence->kind() == Sentence::Kind::kMatch;
+    if (astCtx->sentence->kind() == Sentence::Kind::kMatch) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 StatusOr<SubPlan> MatchPlanner::transform(AstContext* astCtx) {

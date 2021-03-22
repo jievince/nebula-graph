@@ -42,7 +42,7 @@ jobs:
           name: ${{ matrix.os }}-v2-nightly
           path: build/cpack_output
       - name: upload package to oss
-        uses: tvrcgo/upload-to-oss@v0.2.0
+        uses: tvrcgo/upload-to-oss@v0.3.0
         with:
           key-id: ${{ secrets.OSS_ID }}
           key-secret: ${{ secrets.OSS_SECRET }}

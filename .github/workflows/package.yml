@@ -37,12 +37,10 @@ jobs:
         env:
           SHA_EXT: sha256sum.txt
         run: |
-          filename=$(pwd)/$(find build/cpack_output -type f \( -iname \*.deb -o -iname \*.rpm \))
+          filename=$(find build/cpack_output -type f \( -iname \*.deb -o -iname \*.rpm \))
           echo $filename
-          sha256sum $filename > $filename.$SHA_EXT
           subdir=$(date -u +%Y.%m.%d)
           echo "::set-output name=filepath::$filename"
-          echo "::set-output name=shafilepath::$filename.$SHA_EXT"
           echo "::set-output name=subdir::$subdir"
       - uses: actions/upload-artifact@v1
         with:
@@ -54,5 +52,5 @@ jobs:
           key-secret: ${{ secrets.OSS_SECRET }}
           endpoint: ${{ secrets.OSS_ENDPOINT }}
           bucket: nebula-graph
-          asset-path: build/cpack_output/nebula-graph-2021.03.24-nightly.el6.x86_64.rpm
+          asset-path: build/cpack_output
           target-path: package/v2-nightly/${{ steps.vars.outputs.subdir }}

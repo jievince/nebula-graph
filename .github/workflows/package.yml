@@ -18,7 +18,12 @@ jobs:
     strategy:
       matrix:
         os:
+          - ubuntu1604
+          - ubuntu1804
           - ubuntu2004
+          - centos6
+          - centos7
+          - centos8
     container:
       image: vesoft/nebula-dev:${{ matrix.os }}
     steps:
@@ -47,4 +52,4 @@ jobs:
           endpoint: ${{ secrets.OSS_ENDPOINT }}
           bucket: nebula-graph
           asset-path: build/cpack_output
-          target-path: /package/v2-nightly/${{ steps.vars.outputs.subdir }}
+          target-path: package/v2-nightly/${{ steps.vars.outputs.subdir }}

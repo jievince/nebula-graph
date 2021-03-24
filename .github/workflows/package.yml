@@ -54,5 +54,5 @@ jobs:
           key-secret: ${{ secrets.OSS_SECRET }}
           endpoint: ${{ secrets.OSS_ENDPOINT }}
           bucket: nebula-graph
-          asset-path: build/cpack_output
+          asset-path: build/cpack_output/nebula-graph-2021.03.24-nightly.el6.x86_64.rpm
           target-path: package/v2-nightly/${{ steps.vars.outputs.subdir }}

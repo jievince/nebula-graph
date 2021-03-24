@@ -21,7 +21,7 @@ inputs:
     description: 'file path to be uploaded'
     required: true
     default: ''
-  target-path: ''
+  target-path:
     description: 'file path stored on the OSS'
     required: true
     default: ''

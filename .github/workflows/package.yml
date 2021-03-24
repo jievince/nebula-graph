@@ -30,6 +30,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: package
         run: |
+          mkdir build/cpack_output
           touch build/cpack_output/nebula-graph-2021.03.24-nightly.el6.x86_64.rpm
       - name: output some vars
         id: vars

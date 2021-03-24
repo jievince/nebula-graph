@@ -29,8 +29,8 @@ runs:
   using: "composite"
   steps:
     - run: |
-        for filepath in `ls ${{ inputs.asset-path }}`; do                                                                                       
-          echo "filepath: ${filepath}"
+        for filename in `ls ${{ inputs.asset-path }}`; do
+          echo "filename: ${filename}"
           echo "asset-path: ${{ inputs.asset-path }}"
           echo "target-path: ${{ inputs.target-path }}"
           echo "before ossutil"
@@ -39,7 +39,7 @@ runs:
           ossutil64 -e ${{ inputs.endpoint}} \
               -i ${{ inputs.key-id }} \
               -k ${{ inputs.key-secret }} \
-              -f cp ./${filepath} oss://${{ inputs.bucket }}/${{ inputs.target-path }}/$(basename ${filepath})
+              -f cp $(dirname ${{ inputs.asset-path }})/${filename} oss://${{ inputs.bucket }}/${{ inputs.target-path }}/$(basename ${filename})
           echo "after ossutil"
           pwd
           ls ${{ inputs.asset-path }}

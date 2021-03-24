@@ -47,6 +47,6 @@ runs:
             ossutil64 -e ${{ inputs.endpoint}} \
                 -i ${{ inputs.key-id }} \
                 -k ${{ inputs.key-secret }} \
-                -f cp filepath oss://${{ inputs.bucket }}/${{ inputs.target-path }}/$(basename ${filepath})
+                -f cp $filepath oss://${{ inputs.bucket }}/${{ inputs.target-path }}/$(basename ${filepath})
         done
       shell: bash

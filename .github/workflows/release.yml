@@ -30,7 +30,7 @@ jobs:
       - uses: ./.github/actions/tagname-action
         id: tag
       - name: package
-        run: ./package/package.sh -b ${{ steps.tag.outputs.tag }}
+        run: ./package/package.sh
       - name: output some vars
         id: vars
         env:

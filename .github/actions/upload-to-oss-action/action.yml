@@ -39,7 +39,7 @@ runs:
           ossutil64 -e ${{ inputs.endpoint}} \
               -i ${{ inputs.key-id }} \
               -k ${{ inputs.key-secret }} \
-              -f cp $(dirname ${{ inputs.asset-path }})/${filename} oss://${{ inputs.bucket }}/${{ inputs.target-path }}/$(basename ${filename})
+              -f cp ${{ inputs.asset-path }}/${filename} oss://${{ inputs.bucket }}/${{ inputs.target-path }}/$(basename ${filename})
           echo "after ossutil"
           pwd
           ls ${{ inputs.asset-path }}

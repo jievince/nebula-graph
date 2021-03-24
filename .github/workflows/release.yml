@@ -45,7 +45,7 @@ jobs:
           echo "::set-output name=subdir::$subdir"
       - uses: ./.github/actions/upload-assets-action
         with:
-          file-path: ${{ steps.vars.outputs.filepath }}
+          asset-path: build/cpack_output
           tag: ${{ steps.tag.outputs.tag }}
       - name: upload package to oss
         uses: tvrcgo/upload-to-oss@v0.3.0

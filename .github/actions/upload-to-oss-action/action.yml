@@ -33,9 +33,13 @@ runs:
           echo "filepath: ${filepath}"
           echo "asset-path: ${{ inputs.asset-path }}"
           echo "target-path: ${{ inputs.target-path }}"
+          echo "before ossutil"
+          ls ${{ inputs.asset-path }}
           ossutil64 -e ${{ inputs.endpoint}} \
               -i ${{ inputs.key-id }} \
               -k ${{ inputs.key-secret }} \
               -f cp ./${filepath} oss://${{ inputs.bucket }}/${{ inputs.target-path }}/$(basename ${filepath})
+          echo "after ossutil"
+          ls ${{ inputs.asset-path }}
         done
       shell: bash

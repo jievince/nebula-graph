@@ -29,7 +29,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: package
-        run: ./package/package.sh
+        run: |
+          touch build/cpack_output/nebula-graph-2021.03.24-nightly.el6.x86_64.rpm
       - name: output some vars
         id: vars
         env:

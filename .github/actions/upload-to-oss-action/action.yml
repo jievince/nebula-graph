@@ -29,7 +29,6 @@ runs:
   using: "composite"
   steps:
     - run: |
-        echo "upload to oss action..."
         j=0
         if [ -d ${{ inputs.asset-path }} ]; then
           for filename in `ls ${{ inputs.asset-path }}`; do
@@ -40,7 +39,7 @@ runs:
         else
           folder_list[0]=${{ inputs.asset-path }}
         fi
-        echo "start oss..."
+        echo "Uploading to oss... "
         for filepath in ${folder_list[@]};
         do
             echo $filepath

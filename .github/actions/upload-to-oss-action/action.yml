@@ -42,7 +42,6 @@ runs:
         echo "Uploading to oss... "
         for filepath in ${folder_list[@]};
         do
-            echo $filepath
             ossutil64 -e ${{ inputs.endpoint}} \
                 -i ${{ inputs.key-id }} \
                 -k ${{ inputs.key-secret }} \

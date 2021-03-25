@@ -29,6 +29,7 @@ runs:
         for filepath in ${folder_list[@]};
         do
           filename=$(basename "${filepath}")
+          echo "basename: ${filename}"
           content_type=$(file -b --mime-type ${filepath})
           curl --silent \
               --request POST \

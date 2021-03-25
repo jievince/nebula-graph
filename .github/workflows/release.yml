@@ -47,8 +47,7 @@ jobs:
         with:
           asset-path: build/cpack_output
           tag: ${{ steps.tag.outputs.tag }}
-      - name: upload package to oss
-        uses: tvrcgo/upload-to-oss@v0.3.0
+      - uses: ./.github/actions/upload-to-oss-action
         with:
           key-id: ${{ secrets.OSS_ID }}
           key-secret: ${{ secrets.OSS_SECRET }}

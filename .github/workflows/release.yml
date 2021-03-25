@@ -47,7 +47,7 @@ jobs:
           echo "::set-output name=subdir::$subdir"
       - uses: ./.github/actions/upload-assets-action
         with:
-          asset-path: build/cpack_output
+          file-path: ${{ steps.vars.outputs.filepath }}
           tag: ${{ steps.tag.outputs.tag }}
       - uses: ./.github/actions/upload-to-oss-action
         with:

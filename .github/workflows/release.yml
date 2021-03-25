@@ -33,6 +33,7 @@ jobs:
         run: |
           mkdir -p build/cpack_output
           touch build/cpack_output/nebula-graph-6.1.ubuntu1604.amd64.deb
+          echo "test test" >> build/cpack_output/nebula-graph-6.1.ubuntu1604.amd64.deb
       - name: output some vars
         id: vars
         env:
@@ -47,7 +48,7 @@ jobs:
           echo "::set-output name=subdir::$subdir"
       - uses: ./.github/actions/upload-assets-action
         with:
-          asset-path: build/cpack_output
+          file-path: ${{ steps.vars.outputs.filepath }}
           tag: ${{ steps.tag.outputs.tag }}
       - uses: ./.github/actions/upload-to-oss-action
         with:

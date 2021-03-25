@@ -30,7 +30,9 @@ jobs:
       - uses: ./.github/actions/tagname-action
         id: tag
       - name: package
-        run: ./package/package.sh -b ${{ steps.tag.outputs.tag }}
+        run: |
+          mkdir -p build/cpack_output
+          touch build/cpack_output/nebula-graph-6.1.ubuntu1604.amd64.deb
       - name: output some vars
         id: vars
         env:

@@ -63,8 +63,8 @@ folly::Future<Status> UpdateVertexExecutor::execute() {
                 return resp.status();
             }
             auto value = std::move(resp).value();
-            for (auto& code : value.get_result().get_failed_parts()) {
-                NG_RETURN_IF_ERROR(handleErrorCode(code.get_code(), code.get_part_id()));
+            for (auto& failedPart : value.get_result().failedParts) {
+                NG_RETURN_IF_ERROR(handleErrorCode(failedPart.code, failedPart.partId));
             }
             if (value.props_ref().has_value()) {
                 auto status = handleResult(std::move(*value.props_ref()));
@@ -108,8 +108,8 @@ folly::Future<Status> UpdateEdgeExecutor::execute() {
                     return resp.status();
                 }
                 auto value = std::move(resp).value();
-                for (auto& code : value.get_result().get_failed_parts()) {
-                    NG_RETURN_IF_ERROR(handleErrorCode(code.get_code(), code.get_part_id()));
+                for (auto& failedPart : value.get_result().failedParts) {
+                    NG_RETURN_IF_ERROR(handleErrorCode(failedPart.code, failedPart.partId));
                 }
                 if (value.props_ref().has_value()) {
                     auto status = handleResult(std::move(*value.props_ref()));

@@ -119,7 +119,7 @@ protected:
                     "Storage Error: part: %d, error: %s(%d).",
                     partId,
                     "fuck",
-                    //static_cast<typename std::underlying_type<storage::ErrorCode>::type>(code),
+                    // static_cast<typename std::underlying_type<storage::ErrorCode>::type>(code),
                     // apache::thrift::util::enumNameSafe(code).c_str(),
                     static_cast<int32_t>(code));
                 LOG(ERROR) << status;

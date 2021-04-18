@@ -116,9 +116,10 @@ protected:
                 return Status::OK();
             default:
                 auto status = Status::Error(
-                    "Storage Error: part: %d, error: %d(%d).",
+                    "Storage Error: part: %d, error: %s(%d).",
                     partId,
-                    static_cast<typename std::underlying_type<storage::ErrorCode>::type>(code),
+                    "fuck",
+                    //static_cast<typename std::underlying_type<storage::ErrorCode>::type>(code),
                     // apache::thrift::util::enumNameSafe(code).c_str(),
                     static_cast<int32_t>(code));
                 LOG(ERROR) << status;
